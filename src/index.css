@@ -79,3 +79,21 @@ body {
   width: 700px;
   margin: auto;
 }
+
+.wallet {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  border: solid;
+}
+
+.wallet input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.wallet button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
