@@ -7,8 +7,8 @@ function Sushi({ sushi, onEat }) {
   const [wasEaten, setWasEaten] = useState(false);
 
   function markWasEaten () {
-    setWasEaten(true);
-    onEat();
+    if (onEat(price)) setWasEaten(true)
+    else console.log(`Oh no! You don't have enough money for this sushi.`);
   }
 
   return (
