@@ -17,10 +17,14 @@ function App() {
     .then(getR => setSushiAry(getR))
   }, []);
 
-  function handleEatSushi (price) {
-    if (budget >= price) {
+  function handleEatSushi (eatenSushi) {
+    if (budget >= eatenSushi.price) {
       setEmptiesAry([...emptiesAry, '']);
-      setBudget(budget - price);
+      setBudget(budget - eatenSushi.price);
+      setSushiAry(sushiAry.map(sushi => {
+        if (sushi.id === eatenSushi.id) return {...sushi, isEaten: true}
+        else return sushi
+      }))
       return true;
     } else return false;
   }
