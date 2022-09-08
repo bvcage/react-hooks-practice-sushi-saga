@@ -7,6 +7,7 @@ const API = "http://localhost:3001/sushis";
 function App() {
 
   const [sushiAry, setSushiAry] = useState([]);
+  const [emptiesAry, setEmptiesAry] = useState([]);
 
   useEffect(() => {
     fetch(API)
@@ -14,10 +15,14 @@ function App() {
     .then(getR => setSushiAry(getR))
   }, []);
 
+  function handleEatSushi () {
+    setEmptiesAry([...emptiesAry, '']);
+  }
+
   return (
     <div className="app">
-      <SushiContainer sushiAry={sushiAry} />
-      <Table />
+      <SushiContainer sushiAry={sushiAry} onEat={handleEatSushi} />
+      <Table plates={emptiesAry} />
     </div>
   );
 }

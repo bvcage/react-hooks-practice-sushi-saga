@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({ sushiAry }) {
+function SushiContainer(props) {
+  const { sushiAry, onEat } = props;
 
   const [displayIndex, setDisplayIndex] = useState(0);
 
@@ -10,7 +11,7 @@ function SushiContainer({ sushiAry }) {
     .slice(displayIndex, displayIndex + 4)
     .map(sushi => {
       return (
-        <Sushi key={sushi.id} sushi={sushi} />
+        <Sushi key={sushi.id} sushi={sushi} onEat={onEat} />
       )
     })
 
